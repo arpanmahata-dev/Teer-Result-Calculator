@@ -126,7 +126,7 @@ export default function App() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-1 sm:gap-2">
                       <Target className="w-3 h-3 sm:w-5 sm:h-5" />
-                      <span className="font-bold text-xs sm:text-lg">#{serialNum}</span>
+                      <span className="font-bold text-xs sm:text-lg">{serialNum}</span>
                     </div>
                     <div className="text-right">
                       <div className="text-xs opacity-90 hidden sm:block">Total</div>
