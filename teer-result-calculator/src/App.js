@@ -118,25 +118,25 @@ export default function App() {
             const isExpanded = expandedCalc === id;
             
             return (
-              <div key={id} className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
+              <div key={id} className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden">
                 <div 
-                  className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-4 rounded-t-lg cursor-pointer"
+                  className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-2 sm:p-4 rounded-t-lg cursor-pointer"
                   onClick={() => toggleExpand(id)}
                 >
-                  <div className="flex flex-col sm:flex-row items-center justify-between gap-1 sm:gap-0">
-                  <div className="flex items-center gap-1 sm:gap-2">
-                    <Target className="w-4 h-4 sm:w-5 sm:h-5" />
-                     <span className="font-bold text-sm sm:text-lg">#{serialNum}</span>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-1 sm:gap-2">
+                      <Target className="w-3 h-3 sm:w-5 sm:h-5" />
+                      <span className="font-bold text-xs sm:text-lg">#{serialNum}</span>
                     </div>
-                    <div className="text-center sm:text-right">
-                      <div className="text-xs opacity-90">Total</div>
+                    <div className="text-right">
+                      <div className="text-xs opacity-90 hidden sm:block">Total</div>
                       <div className="font-bold text-xs sm:text-base">{formatCurrency(calc.total)}</div>
                     </div>
                   </div>
                 </div>
                 
                 <div className="p-2 sm:p-4">
-                  <div className="flex gap-1 sm:gap-2 mb-2 sm:mb-3">
+                  <div className="flex flex-col gap-1 sm:flex-row sm:gap-2 mb-2 sm:mb-3">
                     <input
                       type="number"
                       step="0.01"
@@ -144,13 +144,14 @@ export default function App() {
                       value={currentInput[id] || ''}
                       onChange={(e) => setCurrentInput(prev => ({ ...prev, [id]: e.target.value }))}
                       onKeyPress={(e) => e.key === 'Enter' && addEntry(id)}
-                      className="flex-1 px-2 py-1 sm:px-3 sm:py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      className="w-full px-2 py-1.5 sm:px-3 sm:py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     />
                     <button
                       onClick={() => addEntry(id)}
-                      className="bg-indigo-600 text-white p-1 sm:p-2 rounded-lg hover:bg-indigo-700 transition-colors"
+                      className="bg-indigo-600 text-white px-3 py-1.5 sm:p-2 rounded-lg hover:bg-indigo-700 transition-colors flex items-center justify-center gap-1"
                     >
-                      <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <Plus className="w-3 h-3 sm:w-5 sm:h-5" />
+                      <span className="text-xs sm:hidden">Add</span>
                     </button>
                   </div>
 
