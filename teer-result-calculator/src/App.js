@@ -130,7 +130,7 @@ export default function App() {
                     </div>
                     <div className="text-right">
                       <div className="text-xs opacity-90 hidden sm:block">Total</div>
-                      <div className="font-bold text-xs sm:text-base">/ {formatCurrency(calc.total)}</div>
+                      <div className="font-bold text-xs sm:text-base whitespace-nowrap">/ {formatCurrency(calc.total)}</div>
                     </div>
                   </div>
                 </div>
