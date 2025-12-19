@@ -111,7 +111,7 @@ export default function App() {
         </div>
 
         {/* Calculator Grid */}
-        <div className="grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-4">
           {filteredCalcs.map((id) => {
             const calc = calculators[id];
             const serialNum = id.toString().padStart(2, '0');
@@ -119,21 +119,21 @@ export default function App() {
             
             return (
               <div key={id} className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden">
-                <div 
-                  className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-2 sm:p-4 rounded-t-lg cursor-pointer"
-                  onClick={() => toggleExpand(id)}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1 sm:gap-2">
-                      <Target className="w-3 h-3 sm:w-5 sm:h-5" />
-                      <span className="font-bold text-xs sm:text-lg">{serialNum}</span>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-xs opacity-90 hidden sm:block">Total</div>
-                      <div className="font-bold text-xs sm:text-base whitespace-nowrap">/ {formatCurrency(calc.total)}</div>
+                  <div 
+                    className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-4 rounded-t-lg cursor-pointer"
+                    onClick={() => toggleExpand(id)}
+                  >
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 flex-shrink-0">
+                        <Target className="w-5 h-5" />
+                        <span className="font-bold text-lg">#{serialNum}</span>
+                      </div>
+                      <div className="text-right min-w-0 flex-1">
+                        <div className="text-xs opacity-90">Total</div>
+                        <div className="font-bold text-sm break-words">{formatCurrency(calc.total)}</div>
+                      </div>
                     </div>
                   </div>
-                </div>
                 
                 <div className="p-2 sm:p-4">
                   <div className="flex flex-col gap-1 sm:flex-row sm:gap-2 mb-2 sm:mb-3">
